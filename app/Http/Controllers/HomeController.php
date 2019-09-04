@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Datatables;
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,38 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $data = User::latest()->paginate(5);
+        return view('users', compact('data'))
+                ->with('i', (request()->input('page', 1) - 1) * 5);
+        return Datatables::of(User::query())->make(true);
+        
+    }
+    public function destroy()
+    {
+        $data = User::latest()->paginate(5);
+        return view('users', compact('data'))
+                ->with('i', (request()->input('page', 1) - 1) * 5);
+        return Datatables::of(User::query())->make(true);
+        
+    }
+    public function show()
+    {
+        $data = User::latest()->paginate(5);
+        return view('users', compact('data'))
+                ->with('i', (request()->input('page', 1) - 1) * 5);
+        return Datatables::of(User::query())->make(true);
+        
+    }
+    public function edit()
+    {
+        $data = User::latest()->paginate(5);
+        return view('users', compact('data'))
+                ->with('i', (request()->input('page', 1) - 1) * 5);
+        return Datatables::of(User::query())->make(true);
+        
+    }
+    public function create()
+    {
+        return view('displaydata');
     }
 }

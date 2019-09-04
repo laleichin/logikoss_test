@@ -11,7 +11,7 @@
                 <lista-componente></lista-componente>
                 </div>
             </div>
-            
+             
         </div>
     </div>
 </div>
